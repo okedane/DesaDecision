@@ -21,7 +21,7 @@ return new class extends Migration {
             $table->text('alamat');
             $table->string('no_hp', 15);
 
-            $table->string('pendidikan');
+            $table->string('pendidikan')->nullable();
             $table->string('jurusan')->nullable();
             $table->integer('pengalaman_kerja')->default(0);
 
@@ -34,6 +34,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('pelamars');
+        Schema::dropIfExists('pelamar');
     }
 };
