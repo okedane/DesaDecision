@@ -13,18 +13,11 @@ return new class extends Migration {
         Schema::create('pelamar', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-
             $table->string('nik', 20)->unique();
             $table->string('nama_lengkap');
-            $table->enum('jenis_kelamin', ['L', 'P']);
-            $table->date('tanggal_lahir');
-            $table->text('alamat');
             $table->string('no_hp', 15);
-
-            $table->string('pendidikan')->nullable();
-            $table->string('jurusan')->nullable();
-            $table->integer('pengalaman_kerja')->default(0);
-
+            $table->string('surat-lamaran-kerja')->nullable();
+            $table->string('cv')->nullable();
             $table->timestamps();
         });
     }
