@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('sub_kriterias', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('kriteria_id')->constrained('kriterias')->onDelete('cascade');
+            $table->string('nama');
+            $table->integer('bobot');
+            $table->integer('min_value');
+            $table->integer('max_value');
             $table->timestamps();
         });
     }

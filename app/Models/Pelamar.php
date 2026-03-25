@@ -19,9 +19,8 @@ class Pelamar extends Model
         'tanggal_lahir',
         'alamat',
         'no_hp',
-        'pendidikan',
-        'jurusan',
-        'pengalaman_kerja'
+        'foto',
+        
     ];
 
     // RELASI
@@ -33,5 +32,10 @@ class Pelamar extends Model
     public function pendaftaran()
     {
         return $this->hasMany(Pendaftaran::class);
+    }
+
+    public function berkas()
+    {
+        return $this->hasMany(Berkas::class);
     }
 }

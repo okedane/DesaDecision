@@ -11,12 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kriterias', function (Blueprint $table) {
+        Schema::create('berkas', function (Blueprint $table) {
             $table->id();
-            $table->string('kode')->unique();
-            $table->string('nama');
-            $table->integer('bobot');
-            $table->enum('sifat', ['cost', 'benefit']);
+            $table->foreignId('pelamar_id')->constrained()->onDelete('cascade');
+
+            $table->enum('jenis', [
+                'ktp',
+                'ijazah',
+                'pas_foto',
+                'cv',
+                'surat_sehat'
+            ]);
+
+            $table->string('file');
             $table->timestamps();
         });
     }
@@ -26,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('kriterias');
+        Schema::dropIfExists('berkas');
     }
 };

@@ -1,18 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\users;
 
 use App\Http\Controllers\Controller;
-use App\Models\Pelamar;
 use Illuminate\Http\Request;
+use App\Models\Pelamar;
 
 
 class PelamarController extends Controller
 {
-    public function index()
+     public function index()
     {
-        $pelamar = Pelamar::all();
-        return view('admin.pelamar.index', compact('pelamar'));
+        $pelamars = Pelamar::all();
+        return view('pages.users.pelamar.index', compact('pelamars'));
+    }
+
+    public function syarat() {
+        return view('pages.users.syarat.index');
     }
 
     public function store(Request $request)

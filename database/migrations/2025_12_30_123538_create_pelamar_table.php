@@ -15,9 +15,11 @@ return new class extends Migration {
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('nik', 20)->unique();
             $table->string('nama_lengkap');
+            $table->string('jenis_kelamin', 10);
+            $table->date('tanggal_lahir');
+            $table->string('alamat', 255);
             $table->string('no_hp', 15);
-            $table->string('surat-lamaran-kerja')->nullable();
-            $table->string('cv')->nullable();
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }

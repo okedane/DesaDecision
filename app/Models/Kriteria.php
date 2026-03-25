@@ -9,13 +9,13 @@ class Kriteria extends Model
 {
     use HasFactory;
 
-    protected $table = 'kriteria';
+    protected $table = 'kriterias';
 
     protected $fillable = [
         'kode',
-        'nama_kriteria',
+        'nama',
         'bobot',
-        'tipe'
+        'sifat'
     ];
 
     // RELASI
