@@ -21,7 +21,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-8">
-                                        <h6 class="text-muted font-semibold mb-1">Profil</h6>
+                                        <h6 class="text-muted font-semibold mb-1">Data Pelamar</h6>
                                         <h6 class="font-extrabold mb-0">Lengkap</h6>
                                     </div>
                                 </div>

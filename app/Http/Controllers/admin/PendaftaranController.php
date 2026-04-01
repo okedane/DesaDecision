@@ -11,7 +11,7 @@ class PendaftaranController extends Controller
     public function index(Request $request)
     {
         $data = Pendaftaran::with('pelamar')->get();
-        return view('admin.pendaftaran.index', compact('data'));
+        return view('pages.admin.status.index', compact('data'));
     }
 
     public function store(Request $request)

@@ -9,6 +9,9 @@ use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\users\DashboardController as UsersDashboardController;
 use App\Http\Controllers\users\PelamarController as UsersPelamarController;
 use App\Http\Controllers\users\PendaftaranController as UsersPendaftaranController;
+use App\Http\Controllers\admin\PelamarController;
+use App\Http\Controllers\admin\PendaftaranController;
+use App\Http\Controllers\users\BerkasController;
 
 // Route::get('/', function () {
 //     return view('admin.dashboard.dashboard');
@@ -28,6 +31,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/dashboard-admin', [DashboardController::class, 'index']);
     Route::resource('/user', UserController::class);
     Route::resource('/kriteria', KriteriaController::class);
+    Route::get('/data-pelamar', [PelamarController::class, 'index'])->name('pelamar.index');
+    Route::get('/status-pelamar', [PendaftaranController::class, 'index'])->name('pendaftaran.index');
+
     Route::get('SubKriteri-{id}', [SubKriteriaController::class, 'index'])->name('subKriteria.index');
     Route::post('SubKriteria/', [SubKriteriaController::class, 'store'])->name('subKriteria.store');
     Route::put('SubKriteria-{id}', [SubKriteriaController::class, 'update'])->name('subKriteria.update');
@@ -40,8 +46,12 @@ Route::middleware(['auth', 'role:pelamar'])->group(function () {
     Route::post('/pendaftaran', [UsersPendaftaranController::class, 'store'])->name('pendaftaran.store');
     Route::resource('/pelamar', UsersPelamarController::class)->except(['create', 'show', 'edit']);
     Route::get('/syarat', [UsersPelamarController::class, 'syarat'])->name('pelamar.syarat');
+    Route::resource('berkas', BerkasController::class);
+    Route::get('hasil-seleksi', [App\Http\Controllers\users\HasilSeleksiController::class, 'index'])->name('hasil-seleksi.index');
 
 });
+
+
 
 Route::middleware(['auth'])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

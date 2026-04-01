@@ -12,7 +12,7 @@ class PelamarController extends Controller
     public function index()
     {
         $pelamar = Pelamar::all();
-        return view('admin.pelamar.index', compact('pelamar'));
+        return view('pages.admin.data-pelamar.index', compact('pelamar'));
     }
 
     public function store(Request $request)

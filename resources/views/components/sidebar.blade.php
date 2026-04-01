@@ -24,6 +24,27 @@
                 </li>
                 <li class="sidebar-item has-sub">
                     <a href="#" class='sidebar-link'>
+                        <i class="bi bi-stack"></i>
+                        <span>Master Data</span>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="{{ route('pelamar.index') }}" class='submenu-link'>
+                                <i class="bi bi-person-fill"></i>
+                                Data Pelamar
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('pendaftaran.index') }}" class='submenu-link'>
+                                <i class="bi bi-file-earmark-check"></i>
+                                Status Pendaftaran  
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                </li>
+                <li class="sidebar-item has-sub">
+                    <a href="#" class='sidebar-link'>
                         <i class="bi bi-graph-up"></i>
                         <span>Topsis</span>
                     </a>
@@ -54,21 +75,22 @@
                         </li>
                     </ul>
                 </li>
+
                 <li class="sidebar-item has-sub">
                     <a href="#" class='sidebar-link'>
-                        <i class="bi bi-stack"></i>
+                        <i class="bi bi-people-fill"></i>
                         <span>Users</span>
                     </a>
                     <ul class="submenu">
                         <li>
                             <a href="/user" class='submenu-link'>
-                                <i class="bi bi-tags"></i>
+                                <i class="bi bi-shield-lock"></i>
                                 Admin
                             </a>
                         </li>
                         <li>
                             <a href="/user" class='submenu-link'>
-                                <i class="bi bi-film"></i>
+                                <i class="bi bi-person-check"></i>
                                 Users
                             </a>
                         </li>
@@ -101,21 +123,21 @@
                 </li>
 
                 <li class="sidebar-item  ">
-                    <a href="{{ route('pelamar.syarat') }}" class='sidebar-link'>
+                    <a href="/berkas" class='sidebar-link'>
                         <i class="bi bi-file-earmark-check"></i>
-                        <span>Data Persyaratan</span>
+                        <span>Berkas</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item  ">
-                    <a href="" class='sidebar-link'>
+                    <a href="{{ route('hasil-seleksi.index') }}" class='sidebar-link'>
                         <i class="bi bi-check-circle"></i>
                         <span>Hasil</span>
                     </a>
                 </li>
 
 
-                
+
                 @endif
 
                 <li class="sidebar-item mt-auto">

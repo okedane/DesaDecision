@@ -74,6 +74,16 @@
                     </section>
 
                     <section class="section">
+                        <h3>Kontak</h3>
+                        <div class="grid-2">
+                            <div class="full">
+                                <label>Nomor Telepon <span class="required">*</span></label>
+                                <input type="text" name="no_hp" placeholder="08xxxxxxxxxx">
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="section">
                         <h3>Alamat</h3>
                         <label>Alamat Lengkap <span class="required">*</span></label>
                         <textarea name="alamat" rows="3"></textarea>

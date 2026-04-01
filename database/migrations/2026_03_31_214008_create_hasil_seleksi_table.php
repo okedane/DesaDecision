@@ -11,19 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('berkas', function (Blueprint $table) {
+        Schema::create('hasil_seleksi', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pelamar_id')->constrained()->onDelete('cascade');
-
-            $table->enum('jenis', [
-                'ktp',
-                'ijazah',
-                'pas_foto',
-                'cv',
-                'surat_sehat'
-            ]);
-
-            $table->string('file');
+            $table->foreignId('pelamar_id')->constrained('pelamar')->onDelete('cascade');
+            $table->enum('status', ['lolos', 'tidak_lolos']);
+            $table->text('keterangan')->nullable();
+            $table->dateTime('tanggal_pengumuman')->nullable();
             $table->timestamps();
         });
     }
@@ -33,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('berkas');
+        Schema::dropIfExists('hasil_seleksi');
     }
 };

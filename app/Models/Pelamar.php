@@ -20,7 +20,7 @@ class Pelamar extends Model
         'alamat',
         'no_hp',
         'foto',
-        
+
     ];
 
     // RELASI
@@ -34,7 +34,7 @@ class Pelamar extends Model
         return $this->hasMany(Pendaftaran::class);
     }
 
-    public function berkas()
+    public function berkasPerlamar()
     {
         return $this->hasMany(Berkas::class);
     }
