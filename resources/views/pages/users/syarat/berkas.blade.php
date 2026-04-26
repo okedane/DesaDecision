@@ -17,6 +17,40 @@
             </div>
         </div>
         <section class="section">
+            <div class="row mb-3">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+                            <div>
+                                <h6 class="mb-1">Pendaftaran Test Administrasi</h6>
+                                @if ($pendaftaran)
+                                    @if ($pendaftaran->status === 'lolos')
+                                        <span class="badge bg-success">Status: Lolos</span>
+                                    @elseif ($pendaftaran->status === 'tidak_lolos')
+                                        <span class="badge bg-danger">Status: Tidak Lolos</span>
+                                    @else
+                                        <span class="badge bg-warning text-dark">Status: Menunggu</span>
+                                    @endif
+                                @elseif (!$isBerkasLengkap)
+                                    <span class="text-muted">Lengkapi 5 berkas wajib untuk mengaktifkan tombol daftar.</span>
+                                @else
+                                    <span class="text-muted">Semua berkas lengkap. Anda bisa lanjut daftar.</span>
+                                @endif
+                            </div>
+
+                            @if (!$pendaftaran)
+                                <form action="{{ route('pendaftaran.store') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-primary" {{ $isBerkasLengkap ? '' : 'disabled' }}>
+                                        <i class="bi bi-send-check me-1"></i> Daftar Test Administrasi
+                                    </button>
+                                </form>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="row">
                 @if (session('success'))
                 <div class="col-12">
@@ -143,6 +177,7 @@
                         </div>
                     </div>
                 </div>
+                
                 @endforeach
             </div>
         </section>

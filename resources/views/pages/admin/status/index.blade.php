@@ -35,24 +35,46 @@
                                 </tr>
                             </thead>
                             <tbody>
-                             
+                                @forelse ($data as $item)
                                     <tr>
-                                        <td>1</td>
-                                        <td>1233445677</td>
-                                        <td>Dhani</td>
-                                        <td>Lolos</td>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->pelamar->nik ?? '-' }}</td>
+                                        <td>{{ $item->pelamar->nama_lengkap ?? '-' }}</td>
+                                        <td>
+                                            @if ($item->status === 'lolos')
+                                                <span class="badge bg-success">Lolos</span>
+                                            @elseif ($item->status === 'tidak_lolos')
+                                                <span class="badge bg-danger">Tidak Lolos</span>
+                                            @else
+                                                <span class="badge bg-warning">Menunggu</span>
+                                            @endif
+                                        </td>
                                         <td>
                                             <div class="d-flex">
-                                                <button class="btn btn-sm btn-success me-2">
-                                                    <i class="bi bi-check-circle"></i> Lolos
-                                                </button>
-                                                <button class="btn btn-sm btn-danger">
-                                                    <i class="bi bi-x-circle"></i> Tidak Lolos
-                                                </button>
+                                                <form action="{{ route('pendaftaran.update', $item->id) }}" method="POST" class="me-2">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <input type="hidden" name="status" value="lolos">
+                                                    <button type="submit" class="btn btn-sm btn-success">
+                                                        <i class="bi bi-check-circle"></i> Lolos
+                                                    </button>
+                                                </form>
+                                                <form action="{{ route('pendaftaran.update', $item->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <input type="hidden" name="status" value="tidak_lolos">
+                                                    <button type="submit" class="btn btn-sm btn-danger">
+                                                        <i class="bi bi-x-circle"></i> Tidak Lolos
+                                                    </button>
+                                                </form>
                                             </div>
                                         </td>
                                     </tr>
-                               =
+                                @empty
+                                    <tr>
+                                        <td colspan="5" class="text-center">Data pendaftaran belum tersedia.</td>
+                                    </tr>
+                                @endforelse
                             </tbody>
                         </table>
                     </div>

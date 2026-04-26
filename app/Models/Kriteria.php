@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\SubKriteria;
 
 class Kriteria extends Model
 {
@@ -21,7 +22,7 @@ class Kriteria extends Model
     // RELASI
     public function subkriteria()
     {
-        return $this->hasMany(Subkriteria::class);
+        return $this->hasMany(SubKriteria::class);
     }
 
     public function penilaian()

@@ -56,7 +56,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="" class='submenu-link'>
+                            <a href="{{ route('penilaian.index') }}" class='submenu-link'>
                                 <i class="bi bi-clipboard-data"></i>
                                 Penilaian
                             </a>

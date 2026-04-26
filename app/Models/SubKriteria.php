@@ -5,7 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Subkriteria extends Model
+
+class SubKriteria extends Model
 {
     use HasFactory;
 
@@ -24,4 +25,6 @@ class Subkriteria extends Model
     {
         return $this->belongsTo(Kriteria::class);
     }
+
+    
 }

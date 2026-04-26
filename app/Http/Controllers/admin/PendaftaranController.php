@@ -39,7 +39,9 @@ class PendaftaranController extends Controller
                 'status' => 'required|in:menunggu,lolos,tidak_lolos',
             ]);
 
-            $pendaftaran->update($request->all());
+            $pendaftaran->update([
+                'status' => $request->status,
+            ]);
             return redirect()->back()->with('success', 'Pendaftaran updated successfully');
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', 'Failed to update pendaftaran: ' . $th->getMessage());

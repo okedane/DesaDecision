@@ -9,18 +9,18 @@ class Penilaian extends Model
 {
     use HasFactory;
 
-    protected $table = 'penilaian';
+    protected $table = 'penilaians';
 
     protected $fillable = [
-        'pendaftaran_id',
+        'pelamar_id',
         'kriteria_id',
         'nilai'
     ];
 
     // RELASI
-    public function pendaftaran()
+    public function pelamar()
     {
-        return $this->belongsTo(Pendaftaran::class);
+        return $this->belongsTo(Pelamar::class);
     }
 
     public function kriteria()

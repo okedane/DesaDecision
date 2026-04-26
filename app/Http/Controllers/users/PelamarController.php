@@ -12,7 +12,7 @@ class PelamarController extends Controller
 {
     public function index()
     {
-        $pelamars = Pelamar::all();
+        $pelamars = Pelamar::where('user_id', Auth::id())->get();
         return view('pages.users.pelamar.pelamar', compact('pelamars'));
     }
 
@@ -57,12 +57,7 @@ class PelamarController extends Controller
             if ($request->hasFile('foto')) {
                 $data['foto'] = $request->file('foto')->store('pelamar/foto', 'public');
             }
-            // if ($request->hasFile('surat-lamaran-kerja')) {
-            //     $data['surat_lamaran_kerja'] = $request->file('surat-lamaran-kerja')->store('pelamar/dokumen', 'public');
-            // }
-            // if ($request->hasFile('cv')) {
-            //     $data['cv'] = $request->file('cv')->store('pelamar/dokumen', 'public');
-            // }
+          
 
             Pelamar::create($data);
             return redirect()->back()->with('success', 'Pelamar created successfully');

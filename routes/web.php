@@ -13,6 +13,9 @@ use App\Http\Controllers\admin\PelamarController;
 use App\Http\Controllers\admin\PendaftaranController;
 use App\Http\Controllers\users\BerkasController;
 
+//admin
+use App\Http\Controllers\admin\PenilaianController;
+
 // Route::get('/', function () {
 //     return view('admin.dashboard.dashboard');
 // });
@@ -33,11 +36,16 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('/kriteria', KriteriaController::class);
     Route::get('/data-pelamar', [PelamarController::class, 'index'])->name('pelamar.index');
     Route::get('/status-pelamar', [PendaftaranController::class, 'index'])->name('pendaftaran.index');
+    Route::put('/status-pelamar/{pendaftaran}', [PendaftaranController::class, 'update'])->name('pendaftaran.update');
 
     Route::get('SubKriteri-{id}', [SubKriteriaController::class, 'index'])->name('subKriteria.index');
     Route::post('SubKriteria/', [SubKriteriaController::class, 'store'])->name('subKriteria.store');
     Route::put('SubKriteria-{id}', [SubKriteriaController::class, 'update'])->name('subKriteria.update');
     Route::delete('SubKriteria-{id}', [SubKriteriaController::class, 'destroy'])->name('subKriteria.destroy');
+
+    Route::get('/penilaian', [PenilaianController::class, 'index'])->name('penilaian.index');
+    Route::post('/penilaian', [PenilaianController::class, 'store'])->name('penilaian.store');
+
 
 });
 

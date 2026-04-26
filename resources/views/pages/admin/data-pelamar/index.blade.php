@@ -39,8 +39,8 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->nik }}</td>
-                                        <td>{{ $item->name }}</td>
-                                        <td>{{ $item->email }}</td>
+                                        <td>{{ $item->user->name }}</td>
+                                        <td>{{ $item->user->email }}</td>
                                         <td>
                                             <div class="d-flex">
                                                <a href="" class="btn btn-sm btn-outline-info me-2">

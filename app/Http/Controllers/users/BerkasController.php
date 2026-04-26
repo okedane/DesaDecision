@@ -5,6 +5,7 @@ namespace App\Http\Controllers\users;
 use App\Http\Controllers\Controller;
 use App\Models\Berkas;
 use App\Models\Pelamar;
+use App\Models\Pendaftaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,8 +18,21 @@ class BerkasController extends Controller
         $berkas = Berkas::whereHas('pelamar', function($query) use ($userId) {
             $query->where('user_id', $userId);
         })->get();
+
+        $pelamar = Pelamar::where('user_id', $userId)->first();
+        $pendaftaran = null;
+
+        if ($pelamar) {
+            $pendaftaran = Pendaftaran::where('pelamar_id', $pelamar->id)
+                ->latest('id')
+                ->first();
+        }
+
+        $requiredJenis = ['ktp', 'ijazah', 'pas_foto', 'cv', 'surat_sehat'];
+        $uploadedJenis = $berkas->pluck('jenis')->unique()->toArray();
+        $isBerkasLengkap = empty(array_diff($requiredJenis, $uploadedJenis));
         
-        return view('pages.users.syarat.berkas', compact('berkas'));
+        return view('pages.users.syarat.berkas', compact('berkas', 'pendaftaran', 'isBerkasLengkap'));
     }
 
     public function store(Request $request)

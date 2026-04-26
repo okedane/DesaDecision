@@ -17,10 +17,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        $this->call(KriteriaSeeder::class);
-        $this->call(SubKriteriaSeeder::class);
         $this->call(UserSeeder::class);
+        $this->call(PelamarSeeder::class);
+        $this->call(PendaftaranSeeder::class);
+        $this->call(KriteriaSeeder::class);
+        $this->call(SubKriteriaSeeder::class);   
     }
 }
