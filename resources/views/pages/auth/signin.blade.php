@@ -30,7 +30,7 @@
                                 <i class="bi bi-person"></i>
                             </div>
                             @error('email')
-                                <div class="invalid-feedback">{{ $message }}</div>
+                            <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="form-group position-relative has-icon-left mb-4">
@@ -41,7 +41,7 @@
                                 <i class="bi bi-shield-lock"></i>
                             </div>
                             @error('password')
-                                <div class="invalid-feedback">{{ $message }}</div>
+                            <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="form-check form-check-lg d-flex align-items-end">
@@ -62,12 +62,17 @@
             </div>
             <div class="col-lg-7 d-none d-lg-block">
                 <div id="auth-right">
-
+                    <div class="auth-cover">
+                        <img src="assets/images/samples/error-500.png" alt="Login Cover" class="img-fluid">
+                    </div>
                 </div>
             </div>
         </div>
 
     </div>
+
+    <x-toast></x-toast>
+    <script src="{{ asset('assets/js/notify.js') }}"></script>
 </body>
 
 </html>

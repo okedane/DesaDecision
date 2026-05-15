@@ -62,13 +62,13 @@
                             </a>
                         </li>
                         <li>
-                            <a href="" class='submenu-link'>
+                            <a href="{{ route('topsis.index') }}" class='submenu-link'>
                                 <i class="bi bi-calculator"></i>
                                 Perhitungan
                             </a>
                         </li>
                         <li>
-                            <a href="" class='submenu-link'>
+                            <a href="{{ route('hasil.index') }}" class='submenu-link'>
                                 <i class="bi bi-check-circle"></i>
                                 Hasil
                             </a>

@@ -50,7 +50,7 @@
                                             <small style="color: #667eea; font-weight: 600;">TANGGAL PENGUMUMAN</small>
                                             <p style="color: #1e293b; margin: 8px 0; font-size: 16px;">
                                                 @if ($hasil->tanggal_pengumuman)
-                                                    {{ \Carbon\Carbon::parse($hasil->tanggal_pengumuman)->format('d F Y H:i') }} WIB
+                                                    {{ \Carbon\Carbon::parse($hasil->tanggal_pengumuman)->locale('id')->format('d F Y H:i') }} WIB
                                                 @else
                                                     Menunggu pengumuman
                                                 @endif
@@ -108,15 +108,15 @@
                                         <hr style="border-top: 1px solid #e2e8f0;">
 
                                         <div class="mb-4">
-                                            <small style="color: #667eea; font-weight: 600;">NO. IDENTITAS</small>
-                                            <p style="color: #1e293b; margin: 8px 0; font-size: 16px;">{{ $hasil->pelamar->no_identitas ?? 'N/A' }}</p>
+                                            <small style="color: #667eea; font-weight: 600;">NO. NIK</small>
+                                            <p style="color: #1e293b; margin: 8px 0; font-size: 16px;">{{ $hasil->pelamar->nik ?? 'N/A' }}</p>
                                         </div>
 
                                         <div class="mb-4">
                                             <small style="color: #667eea; font-weight: 600;">TANGGAL PENGUMUMAN</small>
                                             <p style="color: #1e293b; margin: 8px 0; font-size: 16px;">
                                                 @if ($hasil->tanggal_pengumuman)
-                                                    {{ \Carbon\Carbon::parse($hasil->tanggal_pengumuman)->format('d F Y H:i') }} WIB
+                                                    {{ \Carbon\Carbon::parse($hasil->tanggal_pengumuman)->locale('id')->format('d F Y H:i') }} WIB
                                                 @else
                                                     Menunggu pengumuman
                                                 @endif
@@ -188,7 +188,7 @@
                                 </div>
 
                                 <div class="d-flex gap-2 justify-content-center">
-                                    <a href="" class="btn btn-primary" style="border-radius: 10px; padding: 10px 30px;">
+                                    <a href="{{ route('hasil-seleksi.index') }}" class="btn btn-primary" style="border-radius: 10px; padding: 10px 30px;">
                                         <i class="bi bi-arrow-repeat me-2"></i>Refresh Halaman
                                     </a>
                                     <a href="{{ route('berkas.index') }}" class="btn btn-outline-primary" style="border-radius: 10px; padding: 10px 30px;">

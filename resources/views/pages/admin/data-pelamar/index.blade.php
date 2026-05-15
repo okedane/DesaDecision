@@ -43,12 +43,13 @@
                                         <td>{{ $item->user->email }}</td>
                                         <td>
                                             <div class="d-flex">
-                                               <a href="" class="btn btn-sm btn-outline-info me-2">
+                                               <button type="button" class="btn btn-sm btn-outline-info me-2" data-bs-toggle="modal" data-bs-target="#detailModal{{ $item->id }}">
                                                 <i class="bi bi-diagram-3"></i> Detail
-                                            </a>
+                                            </button>
                                             </div>
                                         </td>
                                     </tr>
+                                    @include('pages.admin.data-pelamar.detail-modal', ['pelamar' => $item])
                                 @endforeach
                             </tbody>
                         </table>

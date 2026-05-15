@@ -16,7 +16,7 @@ class PelamarSeeder extends Seeder
             [
                 'email' => 'a@gmail.com',
                 'nik' => '1234567890123456',
-                'nama_lengkap' => 'Ahmad',
+                'nama_lengkap' => 'a', 
                 'jenis_kelamin' => 'Laki-laki',
                 'tanggal_lahir' => '2000-01-01',
                 'alamat' => 'Sumenep',
@@ -25,7 +25,7 @@ class PelamarSeeder extends Seeder
             [
                 'email' => 'b@gmail.com',
                 'nik' => '1234567890123457',
-                'nama_lengkap' => 'Budi',
+                'nama_lengkap' => 'b',
                 'jenis_kelamin' => 'Laki-laki',
                 'tanggal_lahir' => '1999-05-10',
                 'alamat' => 'Sumenep',
@@ -34,7 +34,7 @@ class PelamarSeeder extends Seeder
             [
                 'email' => 'c@gmail.com',
                 'nik' => '1234567890123458',
-                'nama_lengkap' => 'Citra',
+                'nama_lengkap' => 'c',
                 'jenis_kelamin' => 'Perempuan',
                 'tanggal_lahir' => '2001-03-15',
                 'alamat' => 'Sumenep',
@@ -47,7 +47,7 @@ class PelamarSeeder extends Seeder
 
             if ($user) {
                 DB::table('pelamar')->updateOrInsert(
-                    ['nik' => $item['nik']], // UNIQUE
+                    ['nik' => $item['nik']],
                     [
                         'user_id' => $user->id,
                         'nama_lengkap' => $item['nama_lengkap'],

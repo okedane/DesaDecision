@@ -37,7 +37,6 @@
             
 
             <x-footer></x-footer>
-            <x-toast></x-toast>
         </div>
 
     </div>
@@ -49,16 +48,8 @@
 
     <script src="assets/js/main.js"></script>
 
-    {{-- Toast --}}
-    <script src="{{ asset('assets/js/pages/bootstrap-toasts.init.js') }}"></script>
-    @if (session('success') || session('error'))
-        <script>
-            window.onload = function() {
-                var toast = new bootstrap.Toast(document.getElementById('liveToast'));
-                toast.show();
-            };
-        </script>
-    @endif
+    <script src="{{ asset('assets/js/notify.js') }}"></script>
+    <x-toast></x-toast>
 
 
    
