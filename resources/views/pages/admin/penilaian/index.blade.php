@@ -1,4 +1,3 @@
-{{-- resources/views/penilaian/index.blade.php --}}
 <x-app>
     <div class="page-heading">
         <div class="page-title">
@@ -45,7 +44,7 @@
                     @endif
 
                     <div class="table-responsive">
-                        <table class="table table-striped w-100">
+                        <table data-datatable="true" data-no-sort-last="true" class="table table-striped w-100">
                             <thead>
                                 <tr>
                                     <th>No</th>

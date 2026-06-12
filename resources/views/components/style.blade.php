@@ -45,4 +45,33 @@
         background-color: #303f9f;
         /* lebih gelap saat hover */
     }
+
+
+
+    .table th,
+    .table td,
+    .dataTable-table th,
+    .dataTable-table td {
+        vertical-align: middle !important;
+    }
+    /* Mengatur padding baris tabel agar lebih rapat dan rapi */
+    .table th,
+    .table td,
+    .dataTable-table th,
+    .dataTable-table td {
+        padding: .5rem .75rem !important;
+        line-height: 1.2;
+    }
+    .dataTable-table thead th {
+        padding-top: .6rem !important;
+        padding-bottom: .6rem !important;
+    }
+    /* Mengatur kolom terakhir (biasanya berisi tombol Action/Aksi) agar lebarnya seminimal mungkin */
+    .table th:last-child,
+    .table td:last-child,
+    .dataTable-table th:last-child,
+    .dataTable-table td:last-child {
+        width: 1%;
+        white-space: nowrap;
+    }
 </style>

@@ -1,5 +1,30 @@
 <x-app>
 
+    <style>
+        #pelamarTable th,
+        #pelamarTable td,
+        .dataTable-table th,
+        .dataTable-table td {
+            vertical-align: middle;
+        }
+
+        .dataTable-table th,
+        .dataTable-table td {
+            padding: .5rem .75rem !important;
+            line-height: 1.2;
+        }
+
+        .dataTable-table thead th {
+            padding-top: .6rem !important;
+            padding-bottom: .6rem !important;
+        }
+
+        #pelamarTable th:last-child,
+        #pelamarTable td:last-child {
+            width: 1%;
+        }
+    </style>
+
     <div class="page-heading">
         <div class="page-title">
             <div class="row">
@@ -24,14 +49,14 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class='table table-striped w-100'>
+                        <table id="pelamarTable" data-datatable="true" data-no-sort-last="true" class='table table-striped w-100'>
                             <thead>
                                 <tr>
                                     <th>No</th>
                                     <th>NIK</th>
                                     <th>Nama</th>
-                                    <th>Email</th>
-                                    <th>Action</th>
+                                    <th class="text-nowrap">Email</th>
+                                    <th class="text-nowrap">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -40,8 +65,8 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->nik }}</td>
                                         <td>{{ $item->user->name }}</td>
-                                        <td>{{ $item->user->email }}</td>
-                                        <td>
+                                        <td class="text-nowrap">{{ $item->user->email }}</td>
+                                        <td class="text-nowrap">
                                             <div class="d-flex">
                                                <button type="button" class="btn btn-sm btn-outline-info me-2" data-bs-toggle="modal" data-bs-target="#detailModal{{ $item->id }}">
                                                 <i class="bi bi-diagram-3"></i> Detail

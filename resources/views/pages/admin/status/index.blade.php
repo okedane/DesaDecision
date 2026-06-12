@@ -1,5 +1,26 @@
 <x-app>
 
+    <style>
+        #statusTable th,
+        #statusTable td,
+        .dataTable-table th,
+        .dataTable-table td {
+            vertical-align: middle;
+        }
+
+        .dataTable-table th,
+        .dataTable-table td {
+            padding: .5rem .75rem !important;
+            line-height: 1.2;
+        }
+
+        #statusTable th:last-child,
+        #statusTable td:last-child {
+            width: 1%;
+            white-space: nowrap;
+        }
+    </style>
+
     <div class="page-heading">
         <div class="page-title">
             <div class="row">
@@ -24,14 +45,14 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class='table table-striped w-100'>
+                        <table id="statusTable" data-datatable="true" data-no-sort-last="true" class='table table-striped w-100'>
                             <thead>
                                 <tr>
                                     <th>No</th>
                                     <th>NIK</th>
                                     <th>Nama</th>
                                     <th>Status</th>
-                                    <th>Action</th>
+                                    <th class="text-nowrap">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -49,7 +70,7 @@
                                                 <span class="badge bg-warning">Menunggu</span>
                                             @endif
                                         </td>
-                                        <td>
+                                        <td class="text-nowrap">
                                             <div class="d-flex">
                                                 <form action="{{ route('pendaftaran.update', $item->id) }}" method="POST" class="me-2">
                                                     @csrf

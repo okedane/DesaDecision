@@ -3,10 +3,10 @@
         <div class="sidebar-header">
             <div class="d-flex justify-content-between">
                 <div class="logo">
-                    <a href=""></a>
+                    <a href="/dashboard-admin"></a>
                 </div>
                 <div class="toggler">
-                    <a href="" class='sidebar-hide d-xl-none d-block'><i class='bi bi-x bi-middle'></i></a>
+                    <a href="/dashboard-admin" class='sidebar-hide d-xl-none d-block'><i class='bi bi-x bi-middle'></i></a>
                 </div>
             </div>
         </div>
@@ -17,7 +17,7 @@
 
                 @if(auth()->user()?->role === 'admin')
                 <li class="sidebar-item active ">
-                    <a href="/" class='sidebar-link'>
+                    <a href="/dashboard-admin" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
                     </a>

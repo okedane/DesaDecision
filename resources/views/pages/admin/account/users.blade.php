@@ -28,7 +28,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class='table table-striped w-100'>
+                        <table data-datatable="true" data-no-sort-last="true" class='table table-striped w-100'>
                             <thead>
                                 <tr>
                                     <th>No</th>
@@ -137,10 +137,15 @@
                                                                         <div class="form-group">
                                                                             <label
                                                                                 for="validationCustom03">Password</label>
-                                                                            <input type="password"
-                                                                                id="validationCustom03"
-                                                                                class="form-control" name="password"
-                                                                                placeholder="Password">
+                                                                            <div class="position-relative">
+                                                                                <input type="password"
+                                                                                    id="validationCustom03"
+                                                                                    class="form-control pe-5" name="password"
+                                                                                    placeholder="Password">
+                                                                                <div class="position-absolute toggle-password" style="right: 15px; top: 50%; transform: translateY(-50%); z-index: 5; cursor: pointer;">
+                                                                                    <i class="bi bi-eye-slash fs-5 text-muted"></i>
+                                                                                </div>
+                                                                            </div>
                                                                             <div class="invalid-feedback">Please enter
                                                                                 a password.</div>
                                                                         </div>
@@ -201,18 +206,28 @@
                                                 name="email" placeholder="Email">
                                             <div class="invalid-feedback">Please enter a valid email.</div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="validationCustom03">Password</label>
-                                            <input type="password" id="validationCustom03" class="form-control"
-                                                name="password" placeholder="Password">
-                                            <div class="invalid-feedback">Please enter a password.</div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="validationCustom04">Confirm Password</label>
-                                            <input type="password" id="validationCustom04" class="form-control"
-                                                name="password_confirmation" placeholder="Confirm Password">
-                                            <div class="invalid-feedback">Please confirm your password.</div>
-                                        </div>
+                                         <div class="form-group">
+                                             <label for="validationCustom03">Password</label>
+                                             <div class="position-relative">
+                                                 <input type="password" id="validationCustom03" class="form-control pe-5"
+                                                     name="password" placeholder="Password">
+                                                 <div class="position-absolute toggle-password" style="right: 15px; top: 50%; transform: translateY(-50%); z-index: 5; cursor: pointer;">
+                                                     <i class="bi bi-eye-slash fs-5 text-muted"></i>
+                                                 </div>
+                                             </div>
+                                             <div class="invalid-feedback">Please enter a password.</div>
+                                         </div>
+                                         <div class="form-group">
+                                             <label for="validationCustom04">Confirm Password</label>
+                                             <div class="position-relative">
+                                                 <input type="password" id="validationCustom04" class="form-control pe-5"
+                                                     name="password_confirmation" placeholder="Confirm Password">
+                                                 <div class="position-absolute toggle-password" style="right: 15px; top: 50%; transform: translateY(-50%); z-index: 5; cursor: pointer;">
+                                                     <i class="bi bi-eye-slash fs-5 text-muted"></i>
+                                                 </div>
+                                             </div>
+                                             <div class="invalid-feedback">Please confirm your password.</div>
+                                         </div>
                                         <input type="hidden" name="role" value="pelamar">
                                 </div>
                             </div>

@@ -22,40 +22,54 @@ class UserSeeder extends Seeder
             ]
         );
 
-        DB::table('users')->updateOrInsert(
-            ['email' => 'a@gmail.com'],
+        $pelamars = [
             [
-                'name' => 'a',
+                'email' => 'suri@gmail.com',
+                'name' => 'suri',
                 'password' => bcrypt('12345678'),
                 'role' => 'pelamar',
-            ]
-        );
+            ],
+            [
+                'email' => 'ahmadi@gmail.com',
+                'name' => 'ahmadi',
+                'password' => bcrypt('12345678'),
+                'role' => 'pelamar',
+            ],
+            [
+                'email' => 'suparto@gmail.com',
+                'name' => 'suparto',
+                'password' => bcrypt('12345678'),
+                'role' => 'pelamar',
+            ],
+            [
+                'email' => 'sitinuraisyah@gmail.com',
+                'name' => 'siti nur aisyah',
+                'password' => bcrypt('12345678'),
+                'role' => 'pelamar',
+            ],
+            [
+                'email' => 'sitiaisyah@gmail.com',
+                'name' => 'siti aisyah',
+                'password' => bcrypt('12345678'),
+                'role' => 'pelamar',
+            ],
+            [
+                'email' => 'ach.busri@gmail.com',
+                'name' => 'ach. busri',
+                'password' => bcrypt('12345678'),
+                'role' => 'pelamar',
+            ],
+        ];
 
-         DB::table('users')->updateOrInsert(
-            ['email' => 'b@gmail.com'],
-            [
-                'name' => 'b',
-                'password' => bcrypt('12345678'),
-                'role' => 'pelamar',
-            ]
-        );
-         DB::table('users')->updateOrInsert(
-            ['email' => 'c@gmail.com'],
-            [
-                'name' => 'c',
-                'password' => bcrypt('12345678'),
-                'role' => 'pelamar',
-            ]
-        );
-
-         DB::table('users')->updateOrInsert(
-            ['email' => 'c@gmail.com'],
-            [
-                'name' => 'c',
-                'password' => bcrypt('12345678'),
-                'role' => 'pelamar',
-            ]
-        );
-    
+        foreach ($pelamars as $pelamar) {
+            DB::table('users')->updateOrInsert(
+                ['email' => $pelamar['email']],
+                [
+                    'name' => $pelamar['name'],
+                    'password' => $pelamar['password'],
+                    'role' => $pelamar['role'],
+                ]
+            );
+        }
     }
 }

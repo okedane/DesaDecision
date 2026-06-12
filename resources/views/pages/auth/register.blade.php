@@ -43,20 +43,26 @@
                         </div>
                         <div class="form-group position-relative has-icon-left mb-4">
                             <input type="password"
-                                class="form-control form-control-xl @error('password') is-invalid @enderror"
+                                class="form-control form-control-xl pe-5 @error('password') is-invalid @enderror"
                                 placeholder="Password" name="password">
                             <div class="form-control-icon">
                                 <i class="bi bi-shield-lock"></i>
+                            </div>
+                            <div class="position-absolute toggle-password" style="right: 20px; top: 50%; transform: translateY(-50%); z-index: 5; cursor: pointer;">
+                                <i class="bi bi-eye-slash fs-4 text-muted"></i>
                             </div>
                             @error('password')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="password" class="form-control form-control-xl" placeholder="Confirm Password"
+                            <input type="password" class="form-control form-control-xl pe-5" placeholder="Confirm Password"
                                 name="password_confirmation">
                             <div class="form-control-icon">
                                 <i class="bi bi-shield-lock"></i>
+                            </div>
+                            <div class="position-absolute toggle-password" style="right: 20px; top: 50%; transform: translateY(-50%); z-index: 5; cursor: pointer;">
+                                <i class="bi bi-eye-slash fs-4 text-muted"></i>
                             </div>
                         </div>
                         <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5" type="submit">Sign up</button>
@@ -72,6 +78,24 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('click', function (e) {
+            const toggle = e.target.closest('.toggle-password');
+            if (toggle) {
+                const parent = toggle.parentElement;
+                const input = parent.querySelector('input');
+                if (input) {
+                    const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+                    input.setAttribute('type', type);
+                    
+                    const icon = toggle.querySelector('i');
+                    if (icon) {
+                        icon.classList.toggle('bi-eye');
+                        icon.classList.toggle('bi-eye-slash');
+                    }
+                }
+            }
+        });
+    </script>
 </body>
-
 </html>

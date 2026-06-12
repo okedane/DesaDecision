@@ -28,7 +28,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class='table table-striped w-100'>
+                        <table data-datatable="true" data-no-sort-last="true" class='table table-striped w-100'>
                             <thead>
                                 <tr>
                                     <th>No</th>
@@ -38,7 +38,8 @@
                                     <th>Sifat</th>
                                     <th class="no-export">Action</th>
                                 </tr>
-                            </thead>K</h3 <tbody>
+                            </thead>
+                            <tbody>
                             @foreach ($kriteria as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>

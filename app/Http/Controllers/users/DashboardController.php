@@ -8,21 +8,28 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Pelamar;
 use App\Models\Pendaftaran;
 
+use App\Models\Berkas;
+
 class DashboardController extends Controller
 {
     public function index()
     {
-    $user = Auth::user();
+        $user = Auth::user();
 
-    $pelamar = Pelamar::where('user_id', $user->id)->first();
+        $pelamar = Pelamar::where('user_id', $user->id)->first();
 
-    $pendaftaran = null;
+        $pendaftaran = null;
+        $countBerkas = 0;
+        $jadwalInterview = null;
 
-    if ($pelamar) {
-        $pendaftaran = Pendaftaran::where('pelamar_id', $pelamar->id)->first();
-    }
+        if ($pelamar) {
+            $pendaftaran = Pendaftaran::where('pelamar_id', $pelamar->id)->first();
+            $countBerkas = Berkas::where('pelamar_id', $pelamar->id)->count();
 
-        return view('pages.users.dashboard.dashboard', compact('pendaftaran', 'pelamar'));
+           
+        }
+
+        return view('pages.users.dashboard.dashboard', compact('pendaftaran', 'pelamar', 'countBerkas'));
     }
 
 

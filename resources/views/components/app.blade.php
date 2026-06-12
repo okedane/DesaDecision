@@ -58,15 +58,28 @@
 
     <script src="assets/vendors/simple-datatables/simple-datatables.js"></script>
     <script>
-        // Simple Datatable
-        let table1 = document.querySelector('#table1');
-        let lastColIndex = table1.querySelector('thead tr').children.length - 1;
+        document.addEventListener('DOMContentLoaded', function() {
+            const datatableTables = document.querySelectorAll('table[data-datatable="true"]');
 
-        let dataTable = new simpleDatatables.DataTable(table1, {
-            columns: [{
-                select: lastColIndex,
-                sortable: false
-            }]
+            datatableTables.forEach(function(table) {
+                const headerCells = table.querySelectorAll('thead tr th');
+                if (!headerCells.length) return;
+
+                const columns = [];
+
+                if (table.dataset.noSortLast === 'true') {
+                    columns.push({
+                        select: headerCells.length - 1,
+                        sortable: false
+                    });
+                }
+
+                new simpleDatatables.DataTable(table, {
+                    searchable: true,
+                    fixedHeight: false,
+                    columns: columns
+                });
+            });
         });
     </script>
 

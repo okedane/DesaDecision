@@ -47,3 +47,22 @@ if(typeof PerfectScrollbar == 'function') {
 
 // Scroll into active sidebar
 document.querySelector('.sidebar-item.active').scrollIntoView(false)
+
+// Toggle password visibility
+document.addEventListener('click', function (e) {
+    const toggle = e.target.closest('.toggle-password');
+    if (toggle) {
+        const parent = toggle.parentElement;
+        const input = parent.querySelector('input');
+        if (input) {
+            const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+            input.setAttribute('type', type);
+            
+            const icon = toggle.querySelector('i');
+            if (icon) {
+                icon.classList.toggle('bi-eye');
+                icon.classList.toggle('bi-eye-slash');
+            }
+        }
+    }
+});
