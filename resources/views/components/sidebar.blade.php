@@ -83,13 +83,13 @@
                     </a>
                     <ul class="submenu">
                         <li>
-                            <a href="/user" class='submenu-link'>
+                            <a href="{{ route('user.admin') }}" class='submenu-link'>
                                 <i class="bi bi-shield-lock"></i>
                                 Admin
                             </a>
                         </li>
                         <li>
-                            <a href="/user" class='submenu-link'>
+                            <a href="{{ route('user.index') }}" class='submenu-link'>
                                 <i class="bi bi-person-check"></i>
                                 Users
                             </a>

@@ -28,12 +28,24 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/login-proses', [AuthController::class, 'login_proses'])->name('login.proses');
     Route::get('/register', [AuthController::class, 'show'])->name('register');
     Route::post('/register', [AuthController::class, 'register'])->name('register.proses');
+
+
+    Route::get('forgot', [AuthController::class, 'forgot'])->name('forgot');
+    Route::post('forgot-proses', [AuthController::class, 'forgot_proses'])->name('forgot-proses');
+    Route::get('verify-code', [AuthController::class, 'verify_code'])->name('verify-code');
+    Route::post('verify-code-proses', [AuthController::class, 'verify_code_proses'])->name('verify-code-proses');
+    Route::get('reset-password', [AuthController::class, 'reset_password'])->name('reset-password');
+    Route::post('reset-password-proses', [AuthController::class, 'reset_password_proses'])->name('reset-password-proses');
 });
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
 
     Route::get('/dashboard-admin', [DashboardController::class, 'index']);
-    Route::resource('/user', UserController::class);
+    Route::get('/admin', [UserController::class, 'admin'])->name('user.admin');
+    Route::get('/users', [UserController::class, 'index'])->name('user.index');
+    Route::post('/users', [UserController::class, 'store'])->name('user.store');
+    Route::put('/users/{id}', [UserController::class, 'update'])->name('user.update');
+    Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('user.destroy');
     Route::resource('/kriteria', KriteriaController::class);
     Route::get('/data-pelamar', [PelamarController::class, 'index'])->name('pelamar.index');
     Route::get('/status-pelamar', [PendaftaranController::class, 'index'])->name('pendaftaran.index');

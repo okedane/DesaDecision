@@ -77,6 +77,11 @@ class AuthController extends Controller
         return redirect()->route('login')->with('success', 'Registrasi berhasil, silakan login.');
     }
 
+    public function forgot()
+    {
+        return view('pages.auth.forgot');
+    }
+
 
 
     // Proses kirim kode verifikasi 6 digit
@@ -116,7 +121,7 @@ class AuthController extends Controller
         if (!session('reset_email')) {
             return redirect()->route('forgot')->with('error', 'Please enter your email first.');
         }
-        return view('auth.verify-code');
+        return view('pages.auth.verify-code');
     }
 
     // Proses verifikasi kode
@@ -158,7 +163,7 @@ class AuthController extends Controller
         if (!session('reset_email') || !session('code_verified')) {
             return redirect()->route('forgot')->with('error', 'Unauthorized access.');
         }
-        return view('auth.reset-password');
+        return view('pages.auth.reset-password');
     }
 
     // Proses reset password

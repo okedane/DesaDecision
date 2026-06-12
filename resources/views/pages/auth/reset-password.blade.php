@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login </title>
+    <title>RESET PASSWORD</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
@@ -14,62 +14,54 @@
 
 <body>
     <div id="auth">
-
         <div class="row h-100">
             <div class="col-lg-5 col-12">
                 <div id="auth-left">
-
-                    <h1 class="auth-title">Log in.</h1>
-                    <form action="{{ route('login.proses') }}" method="POST">
+                    <h1 class="auth-title">Reset Password</h1>
+                    <form action="{{ route('reset-password-proses') }}" method="POST">
                         @csrf
-                        <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="text"
-                                class="form-control form-control-xl @error('email') is-invalid @enderror"
-                                placeholder="Email" name="email" value="{{ old('email') }}">
-                            <div class="form-control-icon">
-                                <i class="bi bi-person"></i>
-                            </div>
-                            @error('email')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="form-group position-relative has-icon-left mb-4">
+                       <div class="form-group position-relative has-icon-left mb-4">
+                            <label for="new_password" class="form-label">New Password</label>
                             <input type="password"
                                 class="form-control form-control-xl pe-5 @error('password') is-invalid @enderror"
-                                placeholder="Password" name="password">
+                                placeholder="Enter new password" name="password" id="new_password">
                             <div class="form-control-icon">
                                 <i class="bi bi-shield-lock"></i>
                             </div>
-                            <div class="position-absolute toggle-password" style="right: 20px; top: 50%; transform: translateY(-50%); z-index: 5; cursor: pointer;">
+                            <div class="position-absolute toggle-password" style="right: 20px; top: 60%; transform: translateY(-50%); z-index: 5; cursor: pointer;">
                                 <i class="bi bi-eye-slash fs-4 text-muted"></i>
                             </div>
                             @error('password')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
-                        <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5" type="submit">Log in</button>
+                        <div class="form-group position-relative has-icon-left mb-4">
+                            <label for="password_confirmation" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control form-control-xl pe-5 @error('password_confirmation') is-invalid @enderror" placeholder="Confirm new password"
+                                name="password_confirmation" id="password_confirmation">
+                            <div class="form-control-icon">
+                                <i class="bi bi-shield-lock"></i>
+                            </div>
+                            <div class="position-absolute toggle-password" style="right: 20px; top: 60%; transform: translateY(-50%); z-index: 5; cursor: pointer;">
+                                <i class="bi bi-eye-slash fs-4 text-muted"></i>
+                            </div>
+                            @error('password_confirmation')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5" type="submit">Reset Password</button>
                     </form>
                     <div class="text-center mt-5 text-lg fs-4">
-                        <p class='text-gray-600'>Don't have an account? <a href="{{ route('register') }}"
-                                class='font-bold'>Sign
-                                up</a>.</p>
-                        <p><a class='font-bold  ' href="{{ route('forgot') }}">Forgot password?</a>.</p>
+                        <p class='text-gray-600'>Already have an account? <a href="{{ route('login') }}"
+                                class='font-bold'>Log in</a>.</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-7 d-none d-lg-block">
-                <div id="auth-right">
-                    <div class="auth-cover">
-                        <img src="assets/images/samples/error-500.png" alt="Login Cover" class="img-fluid">
-                    </div>
-                </div>
+                <div id="auth-right"></div>
             </div>
         </div>
-
     </div>
-
-    <x-toast></x-toast>
-    <script src="{{ asset('assets/js/notify.js') }}"></script>
     <script>
         document.addEventListener('click', function (e) {
             const toggle = e.target.closest('.toggle-password');
@@ -90,5 +82,4 @@
         });
     </script>
 </body>
-
 </html>
