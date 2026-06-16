@@ -101,7 +101,7 @@ class AuthController extends Controller
             DB::table('password_reset_tokens')->updateOrInsert(['email' => $email], ['token' => $code, 'created_at' => now()]);
 
             // Kirim email kode verifikasi
-            Mail::send('auth.email-code', ['code' => $code], function ($message) use ($email) {
+            Mail::send('pages.auth.email-code', ['code' => $code], function ($message) use ($email) {
                 $message->to($email);
                 $message->subject('Your Password Reset Verification Code');
             });

@@ -37,7 +37,7 @@
                         <li>
                             <a href="{{ route('pendaftaran.index') }}" class='submenu-link'>
                                 <i class="bi bi-file-earmark-check"></i>
-                                Status Pendaftaran  
+                                Seleksi Berkas 
                             </a>
                         </li>
                     </ul>

@@ -73,8 +73,14 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-7 d-none d-lg-block">
-                <div id="auth-right"></div>
+           <div class="col-lg-7 d-none d-lg-block">
+                <div id="auth-right">
+                    <div class="auth-cover">
+                        <div class="d-flex justify-content-center align-items-center h-100 pt-5">
+                            <img src="assets/images/logo/logo.png" alt="Login Cover" class="img-fluid" style="margin-top: 50px;">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

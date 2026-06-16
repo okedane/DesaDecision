@@ -17,51 +17,71 @@
         <div class="row h-100">
             <div class="col-lg-5 col-12">
                 <div id="auth-left">
-                    <h1 class="auth-title">Reset Password</h1>
+                    <h1 class="auth-title mb-1">Reset Password</h1>
+                    <p class="text-muted mb-4">Masukkan password baru Anda</p>
+                    
                     <form action="{{ route('reset-password-proses') }}" method="POST">
                         @csrf
-                       <div class="form-group position-relative has-icon-left mb-4">
-                            <label for="new_password" class="form-label">New Password</label>
-                            <input type="password"
-                                class="form-control form-control-xl pe-5 @error('password') is-invalid @enderror"
-                                placeholder="Enter new password" name="password" id="new_password">
-                            <div class="form-control-icon">
-                                <i class="bi bi-shield-lock"></i>
-                            </div>
-                            <div class="position-absolute toggle-password" style="right: 20px; top: 60%; transform: translateY(-50%); z-index: 5; cursor: pointer;">
-                                <i class="bi bi-eye-slash fs-4 text-muted"></i>
+                        
+                        <div class="form-group mb-3">
+                            <label for="new_password" class="form-label fw-6 mb-2">Password Baru</label>
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-text bg-white"><i class="bi bi-shield-lock"></i></span>
+                                <input type="password"
+                                    class="form-control form-control-lg @error('password') is-invalid @enderror"
+                                    placeholder="Masukkan password baru"
+                                    name="password"
+                                    id="new_password"
+                                    required>
+                                <button class="btn btn-outline-secondary toggle-password" type="button" aria-label="Toggle password">
+                                    <i class="bi bi-eye-slash fs-5 text-muted"></i>
+                                </button>
                             </div>
                             @error('password')
-                            <div class="invalid-feedback">{{ $message }}</div>
+                                <div class="invalid-feedback d-block">{{ $message }}</div>
                             @enderror
                         </div>
-                        <div class="form-group position-relative has-icon-left mb-4">
-                            <label for="password_confirmation" class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control form-control-xl pe-5 @error('password_confirmation') is-invalid @enderror" placeholder="Confirm new password"
-                                name="password_confirmation" id="password_confirmation">
-                            <div class="form-control-icon">
-                                <i class="bi bi-shield-lock"></i>
-                            </div>
-                            <div class="position-absolute toggle-password" style="right: 20px; top: 60%; transform: translateY(-50%); z-index: 5; cursor: pointer;">
-                                <i class="bi bi-eye-slash fs-4 text-muted"></i>
+                        
+                        <div class="form-group mb-4">
+                            <label for="password_confirmation" class="form-label fw-6 mb-2">Konfirmasi Password</label>
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-text bg-white"><i class="bi bi-shield-lock"></i></span>
+                                <input type="password"
+                                    class="form-control form-control-lg @error('password_confirmation') is-invalid @enderror"
+                                    placeholder="Konfirmasi password baru"
+                                    name="password_confirmation"
+                                    id="password_confirmation"
+                                    required>
+                                <button class="btn btn-outline-secondary toggle-password" type="button" aria-label="Toggle password confirmation">
+                                    <i class="bi bi-eye-slash fs-5 text-muted"></i>
+                                </button>
                             </div>
                             @error('password_confirmation')
-                            <div class="invalid-feedback">{{ $message }}</div>
+                                <div class="invalid-feedback d-block">{{ $message }}</div>
                             @enderror
                         </div>
-                        <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5" type="submit">Reset Password</button>
+                        
+                        <button class="btn btn-primary btn-lg w-100 mt-3" type="submit">Reset Password</button>
                     </form>
-                    <div class="text-center mt-5 text-lg fs-4">
-                        <p class='text-gray-600'>Already have an account? <a href="{{ route('login') }}"
-                                class='font-bold'>Log in</a>.</p>
+                    
+                    <div class="text-center mt-5">
+                        <p class='text-gray-600'>Sudah punya akun? <a href="{{ route('login') }}" class='font-bold text-decoration-none'>Masuk sekarang</a></p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-7 d-none d-lg-block">
-                <div id="auth-right"></div>
+            
+             <div class="col-lg-7 d-none d-lg-block">
+                <div id="auth-right">
+                    <div class="auth-cover">
+                        <div class="d-flex justify-content-center align-items-center h-100 pt-5">
+                            <img src="assets/images/logo/logo.png" alt="Login Cover" class="img-fluid" style="margin-top: 50px;">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    
     <script>
         document.addEventListener('click', function (e) {
             const toggle = e.target.closest('.toggle-password');
