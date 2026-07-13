@@ -222,9 +222,7 @@
                                     <button type="submit" class="btn btn-primary">
                                         <i class="bi bi-check-circle me-2"></i>Simpan Data
                                     </button>
-                                    <a href="{{ route('dashboard-pelamar') }}" class="btn btn-secondary">
-                                        <i class="bi bi-x-circle me-2"></i>Batal
-                                    </a>
+                                   
                                 </div>
                             </form>
                             @endif

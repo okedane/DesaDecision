@@ -67,4 +67,17 @@ class UserController extends Controller
             return redirect()->back()->with('error', 'Failed to update user.');
         }
     }
+
+
+    public function destroy(int $id)
+    {
+        try {
+            $user = User::findOrFail($id);
+            $user->delete();
+
+            return redirect()->back()->with('success', 'User deleted successfully.');
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', 'Failed to delete user. ' . $th->getMessage());
+        }
+    }
 }
